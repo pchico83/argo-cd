@@ -1,0 +1,18 @@
+name: server
+labels:
+  app.kubernetes.io/component: server
+  app.kubernetes.io/part-of: argocd
+image: pchico83/argocd-dev:latest
+command: bash
+volumes:
+  - /go/pkg/
+  - /root/.cache/go-build/
+sync:
+  - .:/home/argocd
+forward:
+  - 8080:8080
+  - 2345:2345
+securityContext:
+  capabilities:
+    add:
+    - SYS_PTRACE

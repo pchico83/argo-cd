@@ -11,3 +11,4 @@ cmd/**/debug
 debug.test
 coverage.out
 ui/node_modules/
+Dockerfile
